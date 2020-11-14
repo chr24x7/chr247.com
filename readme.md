@@ -100,22 +100,27 @@ manager used internally.
 - Within the project root directory, 
     - Make sure the permissions for `storage` and `bootstrap/cache`
 are set to `776` (i.e writable by the web server) - (Windows users make sure the current user has full permissions to read and write on the folders `storage` and `bootstrap/cache`)
-    - Copy the `.env.example` file as `.env` (windows Users- do this using the command prompt). Its advisable to have a copy of this file before you do this.
-    - Run `composer install` within the project root.
+    - Copy the `.env.example` file as `.env` (windows Users- do this using the command prompt  **`copy .env.example .env`** ). Its advisable to have a copy of this file before you do this.
+    - Run `composer install` within the project root.`
     - Run `php artisan key:generate` to generate application key.
         - This command will set a newly generated application key to `.env` file.
     - Set the database related information within `.env` file. If you are using a DB otherthan
     MySQL, you may have to add `DB_CONNECTION=<DB Driver Name>` to `.env` file as well.
         - ```
-          DB_HOST=<Your DB Host>
+          DB_HOST=<Your DB Host> or DB_HOST=<Your DB Host>:<port number> if using non default settings for mysql 
           DB_DATABASE=<Your DB Name>
           DB_USERNAME=<Your DB Username>
           DB_PASSWORD=<Your DB Password>
           ```
     
     - Run database migrations and seeds with `php artisan migrate:refresh --seed`
-    - Run `php artisan serve`
-- Visit [http://localhost:8000] to view the webapp. You can use the login
+    - Run `php artisan serve` this will only provide the page for the development computer
+    - Visit [http://localhost:8000] to view the webapp. 
+    or
+    - Run `php artisan serve --host xxx.xxx.xxx.xxx --port 8000` this will provide page for all computers on the same network 
+    - Visit [http://xxx.xxx.xxx.xxx:8000] to view the webapp. 
+    
+You can use the login
     - username: `imesha`, password: `1234` to login.
   
 ## Contributions
